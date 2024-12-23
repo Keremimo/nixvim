@@ -41,5 +41,25 @@
             default = nvim;
           };
         };
+
+      flake = {
+        nixosModules.nixvim = { pkgs, ... }: {
+          imports = [ nixvim.nixosModules.nixvim ];
+          programs.nixvim = {
+            enable = true;
+            # Import your configuration
+            imports = [ ./config ];
+          };
+        };
+
+        homeManagerModules.nixvim = { pkgs, ... }: {
+          imports = [ nixvim.homeManagerModules.nixvim ];
+          programs.nixvim = {
+            enable = true;
+            # Import your configuration
+            imports = [ ./config ];
+          };
+        };
+      };
     };
 }
