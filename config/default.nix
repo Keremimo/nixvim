@@ -253,7 +253,6 @@
       };
     };
 
-    lsp-signature = { enable = true; };
     friendly-snippets.enable = true;
     lsp = {
       enable = true;
