@@ -3,6 +3,7 @@
 
   imports = [
     ./opts.nix
+    ./transparent.nix
   ];
 
   globals = {
@@ -20,9 +21,9 @@
   plugins = {
     lz-n.enable = true;
     web-devicons.enable = true;
-    transparent.enable = true;
     neocord.enable = true;
-    intellitab.enable = true;
+    noice.enable = true;
+    notify.enable = true;
 
     telescope = {
       enable = true;
@@ -51,10 +52,6 @@
     mini = {
       enable = true;
       modules = {
-        ai = {
-          n_lines = 50;
-          search_method = "cover_or_next";
-        };
         comment = {
           mappings = {
             comment = "<leader>/";
@@ -104,20 +101,14 @@
             };
           };
         };
-        surround = {
-          mappings = {
-            add = "gsa";
-            delete = "gsd";
-            find = "gsf";
-            find_left = "gsF";
-            highlight = "gsh";
-            replace = "gsr";
-            update_n_lines = "gsn";
-          };
+        surround = { };
+        indentscope = {
+          symbol = "│";
+          options = { try_as_border = true; };
         };
       };
     };
-    leap.enable = true;
+    hop.enable = true;
     blink-cmp = {
       enable = true;
       settings = {
@@ -128,14 +119,29 @@
         trigger = { signature_help = { enabled = true; }; };
       };
     };
-    neo-tree = {
+    # neo-tree = {
+    #   enable = true;
+    #   enableRefreshOnWrite = true;
+    #   closeIfLastWindow = true;
+    #   hideRootNode = true;
+    #   popupBorderStyle = "rounded";
+    #   window.position = "right";
+    #   window.width = 20;
+    # };
+
+    oil = {
       enable = true;
-      enableRefreshOnWrite = true;
-      closeIfLastWindow = true;
-      hideRootNode = true;
-      popupBorderStyle = "rounded";
-      window.position = "right";
-      window.width = 20;
+      settings = {
+        columns = [
+          "icons"
+          "permissions"
+          "size"
+          "mtime"
+        ];
+        default_file_explorer = true;
+        delete_to_trash = true;
+        skip_confirmation_for_simple_edits = true;
+      };
     };
 
     cmp = {
@@ -214,29 +220,27 @@
       };
     };
 
-    # lsp-format = { enable = true; };
-    #
-    # none-ls = {
-    #   enable = true;
-    #   sources.formatting = {
-    #     rubocop.enable = true;
-    #     nixfmt.enable = true;
-    #   };
-    # };
-
     luasnip = {
       enable = true;
       settings.enable_autosnippets = true;
     };
 
     nvim-autopairs.enable = true;
+    colorizer.enable = true;
 
-    lualine.enable = true;
+    lualine = {
+      enable = true;
+      settings.options.globalstatus = true;
+    };
+
+    vim-surround.enable = true;
 
     treesitter = {
       enable = true;
-
+      folding = false;
       settings = {
+        indent.enable = true;
+        folding = false;
         auto_install = true;
         ensure_installed = [
           "git_config"
