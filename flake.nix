@@ -52,6 +52,15 @@
           };
         };
 
+	nixDarwinModules.nixvim = { pkgs, ... }: {
+          imports = [ nixvim.nixDarwinModules.nixvim ];
+          programs.nixvim = {
+            enable = true;
+            # Import your configuration
+            imports = [ ./config ];
+          };
+        };
+
         homeManagerModules.nixvim = { pkgs, ... }: {
           imports = [ nixvim.homeManagerModules.nixvim ];
           programs.nixvim = {
