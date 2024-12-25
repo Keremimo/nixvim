@@ -202,9 +202,7 @@
           prettierd = {
             command = lib.getExe pkgs.prettierd;
           };
-          rubocop = {
-            command = lib.getExe pkgs.rubocop;
-          };
+          rubocop = { };
           shellcheck = {
             command = lib.getExe pkgs.shellcheck;
           };
@@ -297,7 +295,6 @@
         };
         ruby_lsp = {
           enable = true;
-          cmd = ''bundle exec ruby-lsp'';
           filetypes = [
             "ruby"
             "eruby"
@@ -305,6 +302,7 @@
         };
         rubocop = {
           enable = true;
+          cmd = [ "bundle" "exec" "rubocop" "--lsp" ];
         };
       };
     };
