@@ -295,6 +295,7 @@
         };
         ruby_lsp = {
           enable = true;
+          cmd = [ "bundle" "exec" "ruby-lsp" ];
           filetypes = [
             "ruby"
             "eruby"
