@@ -204,7 +204,7 @@
             command = lib.getExe pkgs.prettierd;
           };
           rubocop = {
-            command = "bundle exec rubocop -A";
+            command = "rubocop -A";
           };
           shellcheck = {
             command = lib.getExe pkgs.shellcheck;
