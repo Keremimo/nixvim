@@ -202,7 +202,9 @@
           prettierd = {
             command = lib.getExe pkgs.prettierd;
           };
-          rubocop = { };
+          rubocop = {
+            command = "bundle exec rubocop -A";
+          };
           shellcheck = {
             command = lib.getExe pkgs.shellcheck;
           };
