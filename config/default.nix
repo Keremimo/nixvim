@@ -241,7 +241,7 @@
       enable = true;
       folding = false;
       settings = {
-        indent.enable = true;
+        indent.enable = false;
         folding = false;
         auto_install = true;
         ensure_installed = [
