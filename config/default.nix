@@ -304,10 +304,6 @@
             "eruby"
           ];
         };
-        rubocop = {
-          enable = true;
-          cmd = [ "bundle" "exec" "rubocop" "--lsp" ];
-        };
       };
     };
 
