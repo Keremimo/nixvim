@@ -24,6 +24,7 @@
     neocord.enable = true;
     noice.enable = true;
     notify.enable = true;
+    direnv.enable = true;
 
     telescope = {
       enable = true;
