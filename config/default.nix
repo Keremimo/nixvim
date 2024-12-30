@@ -174,9 +174,9 @@
           timeout_ms = 2000;
         };
         formatters_by_ft = {
-          ruby = [
-            "rubocop"
-          ];
+          # ruby = [
+          #   "rubocop"
+          # ];
           bash = [
             "shellcheck"
             "shellharden"
@@ -203,9 +203,9 @@
           prettierd = {
             command = lib.getExe pkgs.prettierd;
           };
-          rubocop = {
-            command = "bundle exec rubocop -A";
-          };
+          # rubocop = {
+          #   command = "rubocop -A";
+          # };
           shellcheck = {
             command = lib.getExe pkgs.shellcheck;
           };
