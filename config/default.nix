@@ -114,10 +114,19 @@
       enable = true;
       settings = {
         accept = { auto_brackets = { enabled = false; }; };
-        windows.documentation = { auto_show = true; };
+        windows.documentation = { auto_show = false; };
         highlight = { use_nvim_cmp_as_default = true; };
         keymap = { preset = "super-tab"; };
         trigger = { signature_help = { enabled = true; }; };
+      };
+    };
+
+    lspkind = {
+      enable = true;
+      symbolMap = { };
+      extraOptions = {
+        maxwidth = 50;
+        ellipsis_char = "...";
       };
     };
 
@@ -290,6 +299,14 @@
         vtsls = {
           enable = true;
           package = pkgs.vtsls;
+        };
+        rust_analyzer = {
+          enable = true;
+          installCargo = false;
+          installRustc = false;
+        };
+        gopls = {
+          enable = true;
         };
         nixd = {
           enable = true;
