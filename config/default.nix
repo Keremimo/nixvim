@@ -26,6 +26,38 @@
     notify.enable = true;
     direnv.enable = true;
 
+    rustaceanvim = {
+      enable = true;
+      settings = {
+        dap.adapter = {
+          command = "${pkgs.lldb_19}/bin/lldb-dap";
+          type = "executable";
+        };
+        tools.enable_clippy = true;
+        server = {
+          default_settings = {
+            inlayHints = { lifetimeElisionHints = { enable = "always"; }; };
+            rust-analyzer = {
+              cargo = { allFeatures = true; };
+              check = { command = "clippy"; };
+            };
+          };
+        };
+      };
+    };
+
+    dap = {
+      enable = true;
+      extensions = {
+        dap-ui.enable = true;
+        dap-virtual-text.enable = true;
+      };
+
+      adapters = {
+        executables = { lldb = { command = "${pkgs.lldb_19}/bin/lldb-dap"; }; };
+      };
+    };
+
     telescope = {
       enable = true;
       keymaps = { "<leader>fg" = "live_grep"; };
@@ -191,6 +223,7 @@
             "shellharden"
             "shfmt"
           ];
+          rust = [ "rustfmt" ];
           cpp = [ "clang_format" ];
           javascript = {
             __unkeyed-1 = "prettierd";
@@ -299,11 +332,6 @@
         vtsls = {
           enable = true;
           package = pkgs.vtsls;
-        };
-        rust_analyzer = {
-          enable = true;
-          installCargo = false;
-          installRustc = false;
         };
         gopls = {
           enable = true;
