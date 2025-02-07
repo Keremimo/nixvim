@@ -145,11 +145,7 @@
     blink-cmp = {
       enable = true;
       settings = {
-        accept = { auto_brackets = { enabled = false; }; };
-        windows.documentation = { auto_show = false; };
-        highlight = { use_nvim_cmp_as_default = true; };
         keymap = { preset = "super-tab"; };
-        trigger = { signature_help = { enabled = true; }; };
       };
     };
 
