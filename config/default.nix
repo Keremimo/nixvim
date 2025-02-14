@@ -164,8 +164,25 @@
       closeIfLastWindow = true;
       hideRootNode = true;
       popupBorderStyle = "rounded";
+
       window.position = "right";
       window.width = 20;
+      window.autoExpandWidth = true;
+
+      eventHandlers = {
+        before_render = ''
+          function (state)
+            -- add something to the state that can be used by custom components
+          end
+        '';
+
+        file_opened = ''
+          function(file_path)
+            --auto close
+            require("neo-tree").close_all()
+          end
+        '';
+      };
     };
 
     oil = {
